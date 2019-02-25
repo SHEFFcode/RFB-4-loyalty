@@ -35,8 +35,29 @@ jobs:
 
             - save_cache:
                   paths:
-                      - ~/.gradle
+                      - ~/.m2
                   key: v1-dependencies-{{ checksum "build.gradle" }}
 
+            - run: gradle clean test bootPackage
+
+            - run:
+                  name: Save test resuts
+                  command: |
+                      mkdir -p ~/junit/
+                      find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/junit/ \;
+                  when: always
+
+            - store_test_results:
+                  path: ~/junit
+
+            - store_artifacts:
+                  path: ~/junit
+
+            - setup_remote_docker
+
+            - run:
+                  name: Build Docker Image
+                  command: gradle bootRepackage -Pprod buildDocker
+
             # run tests!
-            - run: gradle test
+            - run: gradle clean test
