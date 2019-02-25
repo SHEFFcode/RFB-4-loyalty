@@ -60,7 +60,7 @@ jobs:
 
             - run:
                   name: Build Docker Image
-                  command: ./gradlew bootJar -Pprod buildDocker
+                  command:  ./gradlew bootWar -Pprod jibDockerBuild
 
             # run tests!
             - run: ./gradlew clean test
