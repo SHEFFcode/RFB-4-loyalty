@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/SHEFFcode/RFB-4-loyalty.svg?style=svg)](https://circleci.com/gh/SHEFFcode/RFB-4-loyalty)
+
 # rfbroyalty
 
 This application was generated using JHipster 5.8.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.8.1](https://www.jhipster.tech/documentation-archive/v5.8.1).
