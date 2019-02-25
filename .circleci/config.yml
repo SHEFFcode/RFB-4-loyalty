@@ -39,7 +39,7 @@ jobs:
                       - ~/.m2
                   key: v1-dependencies-{{ checksum "build.gradle" }}
 
-            - run: ./gradlew clean test bootPackage
+            - run: ./gradlew clean test bootJar
 
             - run:
                   name: Save test resuts
